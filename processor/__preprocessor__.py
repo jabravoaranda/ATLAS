@@ -6,6 +6,7 @@ Created on Wed Aug 10 10:48:11 2022
 @author: nick
 """
 
+from pdb import set_trace
 import warnings, os, sys
 from .readers.parse_args import call_parser, check_parser
 from .readers import read_files
@@ -77,7 +78,7 @@ def main(args, __version__):
     print("")
     
             
-    if meas_type == 'drk' or not isinstance(sig_raw_d, list):
+    if meas_type == 'drk' or not isinstance(sig_raw_d, list):        
         drk, drk_pack, time_info_d = \
             short_prepro.dark(sig_raw = sig_raw_d, 
                               shots = shots_d, 

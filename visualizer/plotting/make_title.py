@@ -17,10 +17,13 @@ def quicklook(start_date, start_time, end_time, lidar, channel,
 
     sm_ulim = np.round(float(sm_lims[-1]), decimals = 1)
 
-    sm_lhwin = np.round(float(sm_hwin[0]), decimals = 0)
-
-    sm_uhwin = np.round(float(sm_hwin[-1]), decimals = 0)
-    
+    #FIXME: check if this is correct
+    if isinstance(sm_hwin, list):
+        sm_lhwin = np.round(float(sm_hwin[0]), decimals = 0)
+        sm_uhwin = np.round(float(sm_hwin[-1]), decimals = 0)
+    else:
+        sm_lhwin = sm_uhwin = np.round(float(sm_hwin), decimals = 0)
+            
     if sm_expo == True:
         sm_type = 'Exponential'
     else:

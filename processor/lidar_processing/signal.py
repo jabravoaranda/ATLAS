@@ -24,6 +24,7 @@ Fucntions
 
 """
 
+from pdb import set_trace
 import numpy as np
 
 import xarray as xr
@@ -562,9 +563,7 @@ def smoothing(sig, smoothing_window, smoothing_sbin, smoothing_ebin):
         smoothing_ebin = sig.bins.size
 
     bins_d = dict(bins = slice(smoothing_sbin, smoothing_ebin))
-
-    sig_out.loc[bins_d] = sig.copy()\
-        .rolling(bins = smoothing_window, center = True).mean().loc[bins_d]
+    sig_out.loc[bins_d] = sig.copy().rolling(bins = smoothing_window, center = True).mean().loc[bins_d]
         
     return(sig_out)
 

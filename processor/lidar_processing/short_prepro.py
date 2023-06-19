@@ -2,6 +2,7 @@
 @authors: N. Siomos & P. Paschou
 """
 
+from pdb import set_trace
 from ..lidar_processing import signal, diagnose
  
 def standard(sig_raw, shots, meas_info, channel_info, 
@@ -439,8 +440,7 @@ def dark(sig_raw, shots, meas_info, channel_info, external_info, time_info):
     # --------------------------------------------------
     # Calculation of the signals ranges
     # --------------------------------------------------
-    ranges = signal.range_calculation(bins = sig.copy().bins.values, 
-                                      resol = resol)
+    ranges = signal.range_calculation(bins = sig.copy().bins.values, resol = resol)
     
     pack_out['ranges'] = ranges.copy()
 

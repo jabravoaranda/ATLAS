@@ -6,15 +6,21 @@ Created on Thu Sep  1 17:41:20 2022
 @author: nick
 """
 
+from pdb import set_trace
 import numpy as np
 
 def sliding_average_2D(z_vals, y_vals, y_sm_lims, y_sm_hwin, expo):
     
     s_bin = np.where(y_vals > y_sm_lims[0])[0][0]
     e_bin = np.where(y_vals < y_sm_lims[-1])[0][-1]
-    s_ihwin = int(1E-3 * y_sm_hwin[0]  / (y_vals[1] - y_vals[0]))
-    e_ihwin = int(1E-3 * y_sm_hwin[-1] / (y_vals[1] - y_vals[0]))
     
+    #FIXME: check if this is correct
+    if isinstance(y_sm_hwin, list):
+        s_ihwin = int(1E-3 * y_sm_hwin[0]  / (y_vals[1] - y_vals[0]))
+        e_ihwin = int(1E-3 * y_sm_hwin[-1] / (y_vals[1] - y_vals[0]))
+    else:
+        s_ihwin = e_ihwin = int(1E-3 * y_sm_hwin / (y_vals[1] - y_vals[0]))
+
     ihwins = np.zeros(y_vals.size)
 
     z_vals = z_vals.copy()

@@ -7,6 +7,7 @@ Created on Tue Jul 26 15:32:07 2022
 """
 
 import os, sys
+from pdb import set_trace
 import netCDF4 as nc
 import numpy as np
 
@@ -33,9 +34,8 @@ def rayleigh_file(meas_info, channel_info, time_info, time_info_d, nc_path,
         channel_info.channel_type.values + \
             channel_info.acquisition_type.values + \
                 channel_info.channel_subtype.values + \
-                    np.round(channel_info.detected_wavelength.values.astype(float),
-                             decimals = 0).astype('str')
-                    
+                    np.round(channel_info.detected_wavelength.values.astype(float), decimals = 0).astype('str')
+
     start_time = [np.datetime64(t,'us').item() for t in time_info['start_time']]
     end_time = [np.datetime64(t,'us').item() for t in time_info['end_time']]
     

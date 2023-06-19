@@ -6,6 +6,7 @@ Created on Thu Aug  4 23:30:39 2022
 @author: nick
 """
 
+from pdb import set_trace
 from ..readers.read_config import config
 import os
 import numpy as np
@@ -99,6 +100,7 @@ def rayleigh(args, version):
         else: nc_path_rs = None
             
         # Making the raw SCC file
+
         make.rayleigh_file(meas_info = cfg.meas.copy(), 
                            channel_info = cfg.channels.copy(), 
                            time_info = time_info, time_info_d = time_info_d,
@@ -439,15 +441,8 @@ def radiosonde(args, time, version, lidar, lr_id):
     geodata = args['rsonde_geodata']
     
     mtime = np.datetime64(time[0] + (time[-1] - time[0]) / 2., 'us').item()
-    
     try:
-        date, time, atmo = read_files.radiosonde(path_rs, delimiter = delimiter, 
-                                                 skip_header = skip_header, 
-                                                 skip_footer = skip_footer, 
-                                                 usecols = usecols,
-                                                 units = units,
-                                                 mtime = mtime,
-                                                 ground = geodata[-1])
+        date, time, atmo = read_files.radiosonde(path_rs, delimiter = delimiter, skip_header = skip_header, skip_footer = skip_footer, usecols = usecols, units = units, mtime = mtime, ground = geodata[-1])
     except:
         raise Exception('Error detecting when reading the radiosonde file. Please revise the radiosonde parsing options in the settings_file (converter section)')
     

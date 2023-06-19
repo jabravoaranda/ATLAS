@@ -2,6 +2,7 @@
 @author: P. Paschou & N. Siomos
 """
 import configparser
+from pdb import set_trace
 import re
 import numpy as np
 import pandas as pd
@@ -13,7 +14,7 @@ class config():
         """Reads the config file at the given path"""
         
         parser = configparser.ConfigParser()
-        parser.read(path)
+        parser.read(path, encoding='utf-8')
 
 # Lidar
         if parser.has_section('Lidar'):

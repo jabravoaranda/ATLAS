@@ -6,6 +6,7 @@ Created on Tue Aug 30 20:19:58 2022
 @author: nick
 """
 
+from pdb import set_trace
 import warnings, os, sys, glob
 import xarray as xr
 import numpy as np
@@ -120,6 +121,13 @@ def main(args, __version__, meas_type):
         from PIL import Image
         from PIL import PngImagePlugin
        
+        #FIXME: check if this is correct
+        if isinstance( args['half_window']  , list):
+            half_window1 = args['half_window'][0]
+            half_window2 = args['half_window'][-1]
+        else:
+            half_window1 = half_window2 = args['half_window']        
+
         METADATA = {"processing_software" : f"ATLAS_{data.version}",
                     "measurement_id" : f"{data.Measurement_ID}",
                     "channel" : f"{ch}",
@@ -127,8 +135,8 @@ def main(args, __version__, meas_type):
                     "smoothing_exponential" : f"{args['smooth_exponential']}",
                     "smoothing_range (lower)" : f"{args['smoothing_range'][0]}",
                     "smoothing_range (upper)" : f"{args['smoothing_range'][-1]}",
-                    "half_window (lower)": f"{args['half_window'][0]}",
-                    "half_window (upper)": f"{args['half_window'][-1]}",
+                    "half_window (lower)": f"{half_window1}",
+                    "half_window (upper)": f"{half_window2}",
                     "dpi" : f"{args['dpi']}",
                     "use_log_scale" : f"{args['use_log_scale']}",
                     "use_distance" : f"{args['use_distance']}",

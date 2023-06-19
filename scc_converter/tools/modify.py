@@ -6,6 +6,7 @@ Created on Tue Jul 26 15:22:31 2022
 @author: nick
 """
 
+from pdb import set_trace
 import numpy as np
 import sys
 
@@ -76,9 +77,9 @@ def fill_defaults(cfg):
     if (cfg.channels.loc[:,'laser'] == 3).any():
         cfg.channels.loc[:,'laser_repetition_rate'][cfg.channels.loc[:,'laser'] == 3] = cfg.meas['laser_C_repetition_rate']
         
-    acquisition_type = np.empty(cfg.channels.acquisition_mode.size,dtype=object)
-    acquisition_type[cfg.channels.acquisition_mode.values == 0] = 'a'
-    acquisition_type[cfg.channels.acquisition_mode.values == 1] = 'p' 
+    acquisition_type = np.empty(cfg.channels.acquisition_mode.size,dtype=object)    
+    acquisition_type[cfg.channels.acquisition_mode.values.astype(int) == 0] = 'a'
+    acquisition_type[cfg.channels.acquisition_mode.values.astype(int) == 1] = 'p' 
   
     cfg.channels.loc[:,'acquisition_type'] = acquisition_type  
 

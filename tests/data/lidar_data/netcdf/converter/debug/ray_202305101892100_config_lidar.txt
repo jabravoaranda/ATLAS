@@ -1,0 +1,12 @@
+lidar_name,ALHAMBRA
+lidar_id,189
+file_format,licel
+altitude,680
+location,Granada
+latitude,37.18
+longitude,-3.61
+zenith_angle,5
+azimuth_angle,0
+laser_A_repetition_rate,10.0
+laser_B_repetition_rate,20.0
+laser_C_repetition_rate,0.0
