@@ -6,6 +6,7 @@ Created on Thu Sep  1 12:02:25 2022
 @author: nick
 """
 
+from pdb import set_trace
 import warnings, os, sys, glob
 import xarray as xr
 import numpy as np
@@ -110,7 +111,7 @@ def main(args, __version__):
             y_e = sig_e.loc[ch_d].values
             y_s = sig_s.loc[ch_d].values
             y_w = sig_w.loc[ch_d].values
-    
+
             extra_sec = {'N' : False,
                          'E' : False,
                          'S' : False,
@@ -122,7 +123,6 @@ def main(args, __version__):
                 extra_sec['N'] = True
             else:
                 y_n2 = []
-    
             if y_e.shape[0] == iters + 1:
                 y_e2 = y_e[iters,:]
                 extra_sec['E'] = True
@@ -429,7 +429,7 @@ def main(args, __version__):
             # Make the ascii filename
             ascii_name = f'{data.Measurement_ID}_{data.Lidar_Name}_tlc_sectors_{ch}_ATLAS_{__version__}.txt'
     
-            # Export to ascii (Volker's format)        
+            # Export to ascii (Volker's format)      
             export_ascii.telecover(dir_out = args['output_folder'], 
                                    fname = ascii_name, 
                                    header = header,

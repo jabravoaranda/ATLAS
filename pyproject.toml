@@ -14,6 +14,11 @@ matplotlib = "^3.6.2"
 xarray = "^2022.12.0"
 netcdf4 = "^1.6.2"
 h5netcdf = "^1.1.0"
+jupyterlab = "^3.2.0"
+jupyterlab_widgets = "^1.0.2"
+ipywidgets = "^7.6.5"
+ipykernel = "^6.4.2"
+ipython = "^7.29.0"
 
 [build-system]
 requires = ["poetry-core"]

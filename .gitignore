@@ -27,11 +27,11 @@ logs/
 .*.sw?
 .venv/
 
-
 **/*.nc.*
 **/*.log
 public/
-
-
 *.png
 notebooks/Untitled.ipynb
+
+# data
+tests/data/lidar_data/examples/*

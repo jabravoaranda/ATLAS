@@ -6,6 +6,7 @@ Created on Wed Dec 14 15:00:07 2022
 @author: nick
 """
 
+from pdb import set_trace
 import numpy as np
 import os
 

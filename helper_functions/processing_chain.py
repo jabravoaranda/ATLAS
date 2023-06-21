@@ -6,6 +6,7 @@ Created on Wed Sep 21 10:21:48 2022
 @author: nick
 """
 
+from pdb import set_trace
 from version import __version__
 import os, warnings, glob
 from helper_functions import cleaner
